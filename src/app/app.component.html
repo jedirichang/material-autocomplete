@@ -1,0 +1,27 @@
+<div class="container">
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Text Field</mat-label>
+      <input
+        type="text"
+        placeholder="Type"
+        aria-label="text"
+        [(ngModel)]="text"
+        (ngModelChange)="filterData($event)"
+        name="text"
+        matInput
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete
+        #autocompleteElem
+        autoActiveFirstOption
+        #auto="matAutocomplete"
+      >
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{ option }}
+        </mat-option>
+        <mat-option *ngIf="loadingData"> Loading..... </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
